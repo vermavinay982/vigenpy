@@ -1,0 +1,82 @@
+package
+build.sh
+clean.sh
+install.sh
+setup.py
+
+
+
+# Install Package
+we have name.whl file
+pip install name.whl
+
+# Generate whl 
+clone repo
+install without whl file pip install -e .
+generate whl - build.sh
+build and install - install.sh
+cleanup - clean.sh
+
+# build.sh
+python3 setup.py bdist_wheel
+binary distribution wheel format
+
+# clean.sh
+python3 setup.py clean --all
+rm -rf dist
+rm -rf name.egg-info
+
+# install.sh
+python3 setup.py bdist_wheel && pip3 install dist/name.whl
+
+# setup.py
+from setuptools import _install_setup_requires, setup
+
+with open('readme.md','r') as f:
+	long_desc = f.read()
+
+with open('requirements.txt','r') as f:
+	requirements = f.read()
+
+
+requirements = requirements.split('\n')
+
+setup(
+	name='name'
+	version='0.1.0'
+	description='something'
+	license='Proprietary',
+	long_description=long_desc
+	author='Vinay Verma'
+	maintainer='Vinay Verma'
+	maintainer_email='vermavinay982@gmail.com'
+	author_email='vermavinay982@gmail.com'
+	platforms=['Windows','Linux','Mac OS-X','Unix']
+	url='none'
+	python_requires='>=3.7'
+	packages=[
+		'name',
+		'name/write',
+		'name/read',
+		'name/io',
+	],
+	install_requires=requirements,
+)
+
+# package
+
+package
+	__init__.py
+	sub_package1
+		class1.py
+		__init__.py
+	sub_package2
+		class1.py
+		class2.py
+		__init__.py
+	sub_package3
+	sub_package4
+
+# __init__.py
+from .class1 import class1
+from .class2 import class2
