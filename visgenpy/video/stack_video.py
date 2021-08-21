@@ -55,13 +55,14 @@ def stack_video(videos:list=[], axis:int=0)->str:
         cv2.imshow('test',resized_frame)
         if ord('q')==cv2.waitKey(1):
             break  
+            
     # _, encoded_frame = cv2.imencode('.jpg', resized_frame)
     # frame_list.append(encoded_frame)
 
 
 if __name__ == '__main__':
     
-    path1 = 'archery.mp4'
-    path2 = 'cars.mp4'
+    path1 = '../../archery.mp4'
+    path2 = '../../cars.mp4'
     videos = [path1, path2]
-    stack_video(videos)
+    stack_video(videos, axis=1)
