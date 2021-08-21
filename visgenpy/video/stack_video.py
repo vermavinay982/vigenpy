@@ -27,30 +27,24 @@ def stack_video(videos:list=[], axis:int=0)->str:
     caps = [cv2.VideoCapture(cam) for cam in videos]
     size = (300,400)
     past_frame=[]
+    start = True
     while True:
         frames = []
         for i,cap in enumerate(caps):
             ret, frame = cap.read()
             if not ret:
                 caps[i] = cv2.VideoCapture(videos[i])
-                print('CAM FAILED, RESTARTING')
+                print('Video Ended, RESTARTING',videos[i])
                 frame = past_frame[i]
                 # continue
                 # break # stop for both cams later will buffer
+            if start:
+                start = False
+                past_frame = [frame, frame]
+                    
+            past_frame[i]=frame
             frame = cv2.resize(frame, size)
             frames.append(frame)
-            past_frame=[]
-            past_frame.append(frame)
-            
-        try:
-            print(frames[0].shape, end=' ')
-        except:
-            pass
-
-        try:    
-            print(frames[1].shape)
-        except:
-            pass
 
         if axis==0:
             resized_frame = np.hstack(frames)
@@ -59,7 +53,8 @@ def stack_video(videos:list=[], axis:int=0)->str:
             resized_frame = np.vstack(frames)
 
         cv2.imshow('test',resized_frame)
-        cv2.waitKey(1)  
+        if ord('q')==cv2.waitKey(1):
+            break  
     # _, encoded_frame = cv2.imencode('.jpg', resized_frame)
     # frame_list.append(encoded_frame)
 
@@ -67,6 +62,6 @@ def stack_video(videos:list=[], axis:int=0)->str:
 if __name__ == '__main__':
     
     path1 = 'archery.mp4'
-    path2 = 'archery.mp4'
+    path2 = 'cars.mp4'
     videos = [path1, path2]
     stack_video(videos)
