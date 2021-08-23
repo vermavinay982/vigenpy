@@ -1,6 +1,9 @@
 # vigenpy
 Video Generation Package
 
+Project URL: https://pypi.org/project/vigenpy/
+Github URL: https://github.com/vermavinay982/vigenpy
+
 ## Installing Library
 ```bash
 pip install vigenpy
