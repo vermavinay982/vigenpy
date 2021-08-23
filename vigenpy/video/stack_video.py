@@ -60,6 +60,7 @@ def stack_video(videos:list=[], axis:int=0)->str:
 
         cv2.imshow('test',resized_frame)
         if ord('q')==cv2.waitKey(1):
+            cv2.destroyAllWindows()
             break  
             
     # _, encoded_frame = cv2.imencode('.jpg', resized_frame)
