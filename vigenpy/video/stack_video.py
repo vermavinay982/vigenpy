@@ -9,6 +9,7 @@ __module_name__ = "[Stack Video]"
 
 import numpy as np
 import cv2
+import os
 
 def write_video(frame_list, video_name, resized_frame, writer_fps):
     fourcc = cv2.VideoWriter_fourcc(*"mp4v")
@@ -24,6 +25,11 @@ def write_video(frame_list, video_name, resized_frame, writer_fps):
 
 def stack_video(videos:list=[], axis:int=0)->str:
     frame_list = list()
+    for video in videos:
+        if not os.path.exists(video):
+            print(f'Video {video} Not There')
+            return None
+
     caps = [cv2.VideoCapture(cam) for cam in videos]
     size = (300,400)
     past_frame=[]
@@ -59,10 +65,9 @@ def stack_video(videos:list=[], axis:int=0)->str:
     # _, encoded_frame = cv2.imencode('.jpg', resized_frame)
     # frame_list.append(encoded_frame)
 
-
 if __name__ == '__main__':
     
-    path1 = '../../archery.mp4'
-    path2 = '../../cars.mp4'
+    path1 = '../../../archery.mp4'
+    path2 = '../../../cars.mp4'
     videos = [path1, path2]
-    stack_video(videos, axis=1)
+    stack_video(videos, axis=0)
