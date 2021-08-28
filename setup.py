@@ -3,7 +3,7 @@ from setuptools import _install_setup_requires, setup, find_packages
 with open('readme.md','r') as f:
 	long_desc = f.read()
 
-with open('short_desc.txt','r') as f:
+with open('documents/short_desc.txt','r') as f:
 	short_desc = f.read()
 
 with open('requirements.txt','r') as f:
@@ -13,7 +13,7 @@ requirements = requirements.split('\n')
 
 setup(
 	name='vigenpy',
-	version='0.1.3',
+	version='0.2.0',
 	description=short_desc,
 	license='Proprietary',
 	long_description=long_desc,
