@@ -52,11 +52,13 @@ and based on the list - the precedence is decided for stacking the video togethe
 from vigenpy.video import stack_video
 
 videos = ['archery.mp4','cycling.mp4']
-stack_video(videos, axis=0) 
+stack_video(videos, axis=0, write_path='mixed.mp4') 
 ```
 
 ## Advanced Way to Use
 ```python
+from vigenpy.video import stack_video
+
 path1 = '../../../archery.mp4'
 path2 = '../../../cars.mp4'
 

@@ -98,7 +98,6 @@ def stack_video(
             wait_key = cv2.waitKey(1)
 
             if ord('q')== wait_key or ord('Q')== wait_key:
-                cv2.destroyAllWindows()
                 break
 
     if writer_fps is None:
@@ -106,9 +105,12 @@ def stack_video(
 
     if write_path:
         video_name = write_video(frame_list, write_path, output_shape, writer_fps=writer_fps)        
-    print("Video written sucessfully at :",video_name)
-
-    return video_name
+        print("Video written sucessfully at :",video_name)
+        return video_name
+    
+    if display:
+        cv2.destroyAllWindows()
+    return None
 
 if __name__ == '__main__':
     
