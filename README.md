@@ -10,7 +10,7 @@ Having 2 videos and you want to merge them? Tell what side by side, top and bott
 ```bash
 pip install vigenpy
 ```
-
+![image]('documents/demo.gif')
 
 Suppose you have trained a model, and want to run comparison on 2 different videos at same time. This tool will help you to choose any axis of placing the frame - you can directly stack 2 videos like lego bricks and it will work for you as single video. You can even process 2 videos individually with different ML model and can put them side by side for comparison - cool just give their path - rest the algo will deal with it. you can even process indiviually and process it later - its very easy.
 
