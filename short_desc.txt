@@ -1,0 +1,2 @@
+A video generation library, vigenpy . It enables the developer to generate a new video by merging 2 or more videos in one video.
+It is a flexible library that provides you total flexibility in generating videos by stacking them. You can also use them as input to your Code. COOL.

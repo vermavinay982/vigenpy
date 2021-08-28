@@ -82,6 +82,6 @@ from .class1 import class1
 from .class2 import class2
 
 
-
+Uploading library
 python .\setup.py sdist bdist_wheel
 twine upload dist/*
