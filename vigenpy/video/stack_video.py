@@ -46,7 +46,7 @@ def stack_video(videos:list=[], axis:int=0)->str:
                 # break # stop for both cams later will buffer
             if start:
                 start = False
-                past_frame = [frame, frame]
+                past_frame = [frame for i in videos]
                     
             past_frame[i]=frame
             frame = cv2.resize(frame, size)
@@ -59,7 +59,8 @@ def stack_video(videos:list=[], axis:int=0)->str:
             resized_frame = np.vstack(frames)
 
         cv2.imshow('test',resized_frame)
-        if ord('q')==cv2.waitKey(1):
+        wait_key = cv2.waitKey(1)
+        if ord('q')== wait_key or ord('Q')== wait_key:
             cv2.destroyAllWindows()
             break  
             
@@ -70,5 +71,5 @@ if __name__ == '__main__':
     
     path1 = '../../../archery.mp4'
     path2 = '../../../cars.mp4'
-    videos = [path1, path2]
+    videos = [path1, path2, path1, path2]
     stack_video(videos, axis=0)
