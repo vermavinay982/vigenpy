@@ -13,13 +13,13 @@ requirements = requirements.split('\n')
 
 setup(
 	name='vigenpy',
-	version='0.2.0',
+	version='0.2.2',
 	description=short_desc,
-	license='Proprietary',
+	license='MIT',
 	long_description=long_desc,
 	long_description_content_type='text/markdown',
-	author='Vinay Verma',
-	maintainer='Vinay Verma',
+	author='Vinay Kumar Verma',
+	maintainer='Vinay Kumar Verma',
 	maintainer_email='vermavinay982@gmail.com',
 	author_email='vermavinay982@gmail.com',
 	platforms=['Windows','Linux','Mac OS-X','Unix'],
