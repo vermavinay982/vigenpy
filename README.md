@@ -21,10 +21,11 @@ Its upto you what amazing you can do with this tool. Feel free to contribute and
 It is a flexible library that provides you total flexibility.
 
 # Axis Stacking
-It has 3 axis - axis 0 - horizontal x axis - side by side videos
+It has 3 axis 
+- axis 0 - horizontal x axis - side by side videos
 - axis 1 - vertical y axis - top and bottom merge of videos
 - axis 2 - that is back to back - video will be generated combining the 2 videos in time axis
-- axis 3 - shuffle in the middle - one frame this another that - again first 1,2,1,2,1,2.....
+- axis 3 - shuffle in the middle - one frame this another that - again first 1,2,1,2,1,2.....(Future Update)
 
 The video path or the stream path is given as list 
 and based on the list - the precedence is decided for stacking the video together
@@ -42,7 +43,7 @@ and based on the list - the precedence is decided for stacking the video togethe
 	or the shorter video will be used to break the loop irrespective of longer video time
 	use_time_of = 0,1 whatever - that will be used to generate the video
 
-3. if you want to fetch frames that are merged so you can do other things
+3. If you want to fetch frames that are merged so you can do other things
 	that you can process the frames and use it at your end.
 
 
@@ -52,6 +53,26 @@ from vigenpy.video import stack_video
 
 videos = ['archery.mp4','cycling.mp4']
 stack_video(videos, axis=0) 
+```
+
+## Advanced Way to Use
+```python
+path1 = '../../../archery.mp4'
+path2 = '../../../cars.mp4'
+
+videos = [path1, path2, path1, path2]
+video_size = (300,300) # w/h
+limit_video = 0 # video index of video that will decide to close streaming
+video_path = 'test.mp4'
+
+output_video = stack_video(
+                        videos,
+                        axis=0,
+                        size=video_size,
+                        limit_video=limit_video, 
+                        write_path=video_path,
+                        writer_fps=None, 
+                        display=True)
 ```
 
 
