@@ -3,6 +3,7 @@
 
 - Project URL: https://pypi.org/project/vigenpy/
 - Github URL: https://github.com/vermavinay982/vigenpy
+- Intro & Demo Video: https://youtu.be/shr7d-4P5IA
 
 Having 2 videos and you want to merge them? Tell what side by side, top and bottom, or just wrt time - you can do that too just by choosing the axis where you want to attach the video at.
 
@@ -81,6 +82,6 @@ print(output_video)
 ```
 
 
-- License: Proprietary
+- License: MIT
 - Author: [Vinay Kumar Verma](mailto:vermavinay982@gmail.com) 
 - Maintainer: [Vinay Kumar Verma](mailto:vermavinay982@gmail.com) 
