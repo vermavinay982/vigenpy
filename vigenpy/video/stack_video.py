@@ -38,7 +38,7 @@ def write_video(frame_list, video_name, output_shape, writer_fps, duration):
     total_duration = frame_counter/writer_fps
     return video_name, total_duration
 
-def axis_stack(caps, videos, size, axis, display):
+def axis_stack(caps, videos, size, axis, display, limit_video):
     frame_list = list() # storing video frames to write
     past_frame=[]
     start = True
@@ -83,7 +83,7 @@ def axis_stack(caps, videos, size, axis, display):
         frame_list.append(encoded_frame)
 
         if display:
-            cv2.imshow('test',resized_frame)
+            cv2.imshow('Output',resized_frame)
             wait_key = cv2.waitKey(1)
 
             if ord('q')==wait_key or ord('Q')==wait_key:
@@ -105,7 +105,7 @@ def time_stack(caps, videos, size, display):
             frame_list.append(encoded_frame)
 
             if display:
-                cv2.imshow('test',resized_frame)
+                cv2.imshow('Output',resized_frame)
                 wait_key = cv2.waitKey(1)
 
                 if ord('q')==wait_key or ord('Q')==wait_key:
@@ -146,21 +146,22 @@ def stack_video(
         frame_list, output_shape = time_stack(caps, videos, size, display=display)
 
     if axis==1:
-        frame_list, output_shape = axis_stack(caps, videos, size, axis=axis, display=display)
+        frame_list, output_shape = axis_stack(caps, videos, size, axis=axis, display=display, limit_video=limit_video)
 
     if axis==0:
-        frame_list, output_shape = axis_stack(caps, videos, size, axis=axis, display=display)
+        frame_list, output_shape = axis_stack(caps, videos, size, axis=axis, display=display, limit_video=limit_video)
 
     if writer_fps is None:
         writer_fps = fps
+
+    if display:
+        cv2.destroyAllWindows()
 
     if write_path:
         video_name, vid_duration = write_video(frame_list, write_path, output_shape, writer_fps=writer_fps, duration=duration)        
         print(f"Video written sucessfully at :{video_name} || With Duration {vid_duration:.2f} seconds")
         return video_name
     
-    if display:
-        cv2.destroyAllWindows()
     return None
 
 if __name__ == '__main__':
