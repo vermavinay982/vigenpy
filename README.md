@@ -65,17 +65,20 @@ path2 = '../../../cars.mp4'
 
 videos = [path1, path2, path1, path2]
 video_size = (300,300) # w/h
-limit_video = 0 # video index of video that will decide to close streaming
+limit_video = 0 # video index, that will decide to close streaming
 video_path = 'test.mp4'
+video_duration = 4 # in seconds default None
 
 output_video = stack_video(
                         videos,
-                        axis=0,
+                        axis=2,
                         size=video_size,
                         limit_video=limit_video, 
                         write_path=video_path,
                         writer_fps=None, 
-                        display=True)
+                        display=True,
+                        duration=video_duration)
+print(output_video)
 ```
 
 
