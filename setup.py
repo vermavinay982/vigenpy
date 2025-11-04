@@ -1,6 +1,6 @@
 from setuptools import _install_setup_requires, setup, find_packages
 
-with open('readme.md','r') as f:
+with open('README.md','r') as f:
 	long_desc = f.read()
 
 with open('documents/short_desc.txt','r') as f:
